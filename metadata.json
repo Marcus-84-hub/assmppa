@@ -1,0 +1,7 @@
+{
+  "name": "EduInspect - Sistema de Vistoria Escolar",
+  "description": "Uma plataforma robusta para vistorias técnicas em unidades escolares, com suporte offline, gerenciamento de infraestrutura, recursos humanos e relatórios detalhados.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
