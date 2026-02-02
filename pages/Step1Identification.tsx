@@ -99,7 +99,7 @@ const Step1Identification: React.FC<Props> = ({ data, onUpdate, onNext }) => {
               />
             </div>
 
-            <div className="md:col-span-8">
+            <div className="md:col-span-5">
               <label className="block text-xs font-bold text-slate-400 uppercase mb-2">Endereço</label>
               <input
                 type="text"
