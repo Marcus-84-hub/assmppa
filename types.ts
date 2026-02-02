@@ -1,6 +1,7 @@
 
 export interface SchoolInfo {
   nome: string;
+  inep?: string;
   use: string;
   endereco: string;
   bairro: string;
