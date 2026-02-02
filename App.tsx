@@ -24,6 +24,7 @@ import FinalReport from './pages/FinalReport';
 // Components
 import Sidebar from './components/Sidebar';
 import Header from './components/Header';
+import ErrorBoundary from './components/ErrorBoundary';
 
 const App: React.FC = () => {
   const [currentPage, setCurrentPage] = useState<string>('dashboard');
@@ -123,31 +124,33 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className="flex h-screen overflow-hidden bg-slate-50 dark:bg-slate-950">
-      <Sidebar
-        isOpen={isSidebarOpen}
-        current={currentPage}
-        onNavigate={setCurrentPage}
-        onToggle={() => setIsSidebarOpen(!isSidebarOpen)}
-      />
-
-      <div className="flex flex-col flex-1 min-w-0 overflow-hidden">
-        <Header
-          onToggleSidebar={() => setIsSidebarOpen(!isSidebarOpen)}
-          isSyncing={isSyncing}
-          lastSaved={lastSaved}
-          onSyncManual={syncToSupabase}
+    <ErrorBoundary>
+      <div className="flex h-screen overflow-hidden bg-slate-50 dark:bg-slate-900">
+        <Sidebar
+          isOpen={isSidebarOpen}
+          current={currentPage}
+          onNavigate={setCurrentPage}
+          onToggle={() => setIsSidebarOpen(!isSidebarOpen)}
         />
 
-        <main className="flex-1 overflow-y-auto focus:outline-none custom-scrollbar">
-          <div className="py-6">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
-              {renderPage()}
+        <div className="flex flex-col flex-1 min-w-0 overflow-hidden">
+          <Header
+            onToggleSidebar={() => setIsSidebarOpen(!isSidebarOpen)}
+            isSyncing={isSyncing}
+            lastSaved={lastSaved}
+            onSyncManual={syncToSupabase}
+          />
+
+          <main className="flex-1 overflow-y-auto focus:outline-none custom-scrollbar">
+            <div className="py-6">
+              <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
+                {renderPage()}
+              </div>
             </div>
-          </div>
-        </main>
+          </main>
+        </div>
       </div>
-    </div>
+    </ErrorBoundary>
   );
 };
 
