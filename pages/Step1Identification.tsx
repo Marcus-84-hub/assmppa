@@ -78,7 +78,16 @@ const Step1Identification: React.FC<Props> = ({ data, onUpdate, onNext }) => {
                 </button>
               </div>
             </div>
-            {/* Rest of the component remains roughly the same, re-outputting critical parts for clarity/context consistency */}
+            <div className="md:col-span-3">
+              <label className="block text-xs font-bold text-slate-400 uppercase mb-2">INEP</label>
+              <input
+                type="text"
+                placeholder="Cód. INEP"
+                value={data.inep || ''}
+                onChange={(e) => handleChange('inep', e.target.value)}
+                className="w-full bg-slate-50 dark:bg-slate-950 border-slate-200 dark:border-slate-800 rounded-xl focus:ring-primary-500 transition-all"
+              />
+            </div>
             <div className="md:col-span-3">
               <label className="block text-xs font-bold text-slate-400 uppercase mb-2">USE</label>
               <input
