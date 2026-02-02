@@ -4,15 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <script>
-    window.onerror = function (message, source, lineno, colno, error) {
-      document.body.innerHTML = '<div style="color:red; padding:20px; font-family:monospace; font-size:16px;"><h1>Global Error Caught</h1><p>' + message + '</p><p>' + source + ':' + lineno + '</p><pre>' + (error ? error.stack : 'No stack') + '</pre></div>';
-      return false;
-    };
-    window.addEventListener('unhandledrejection', function (event) {
-      document.body.innerHTML += '<div style="color:blue; padding:20px; font-family:monospace; font-size:16px;"><h1>Unhandled Rejection</h1><p>' + event.reason + '</p></div>';
-    });
-  </script>
+
   <title>EduInspect - Sistema de Vistoria</title>
   <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
