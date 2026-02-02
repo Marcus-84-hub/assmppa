@@ -5,7 +5,10 @@ const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
 const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
 
 if (!supabaseUrl || !supabaseAnonKey) {
-    throw new Error('Supabase URL and Key must be defined in .env.local');
+    console.warn('Supabase URL and Key missing! The app will run in offline/demo mode.');
 }
 
-export const supabase = createClient(supabaseUrl, supabaseAnonKey);
+// Create client or fallback to a dummy object to prevent crash
+export const supabase = (supabaseUrl && supabaseAnonKey)
+    ? createClient(supabaseUrl, supabaseAnonKey)
+    : createClient('https://placeholder.supabase.co', 'placeholder') as any;
